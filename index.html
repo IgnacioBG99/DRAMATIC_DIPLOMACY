@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dramatic Diplomacy — Video Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation / Game Status Header -->
+  <header class="game-header">
+    <div class="logo-title">
+      <h1>Dramatic Diplomacy</h1>
+      <span class="subtitle">Opening the Bamboo Curtain</span>
+    </div>
+    
+    <!-- Progression Tracker -->
+    <nav class="tour-tracker">
+      <div class="tour-badge active" id="badge-tour1">Tour I: Late 1950s</div>
+      <div class="tour-badge locked" id="badge-tour2">Tour II: Early 60s to 70s</div>
+      <div class="tour-badge locked" id="badge-tour3">Tour III: Late 1980s</div>
+    </nav>
+  </header>
+
+  <!-- Main Game Container -->
+  <main class="game-container">
+
+    <!-- 1. INTRO / ONBOARDING SCREEN -->
+    <section id="screen-intro" class="game-screen">
+      <div class="briefing-card">
+        <h2>Welcome to Mr/Ms.Curator</h2>
+        <p>Your mission is to organise international travelling art exhibitions to cultivate Hong Kong international communication while navigating the Cold War divide.</p>
+        <button id="btn-start-game" class="btn-primary">Begin Tour I</button>
+      </div>
+    </section>
+
+    <!-- ABOUT THE GAME / ARCHIVAL CREDITS (Given id="screen-about" so JS can hide it after Intro) -->
+    <section id="screen-about" class="game-screen about-game-card">
+      <h3>About the Game</h3>
+      <p>
+        <em>Dramatic Diplomacy: Opening the Bamboo Curtain</em> is an interactive historical curation simulation exploring the intersections of art and diplomacy across East and Southeast Asia during the Cold War era.
+      </p>
+      
+      <div class="archival-credits">
+        <h4>Archival & Institutional Acknowledgments</h4>
+        <p>
+          The visual assets, artworks, and historical documents featured throughout this game have been downloaded or photographed from the archives and collections of:
+        </p>
+        <ul>
+          <li><strong>Hong Kong Museum of Art (HKMoA)</strong></li>
+          <li><strong>City Hall Museum and Art Gallery Archives</strong></li>
+          <!-- Add or edit additional institution names below -->
+          <li><em>[Add any additional library, university, or museum names here]</em></li>
+        </ul>
+        <p class="copyright-disclaimer">
+          © 2026. This website is for research and educational purposes only.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. STAGE 1: SUPERFICIAL POLITICAL BRIEFING -->
+    <section id="screen-stage1-briefing" class="game-screen hidden">
+      <h2>Stage 1: Geopolitical Intelligence</h2>
+      <div class="briefing-content">
+        <p id="political-briefing-text">Loading political intelligence for this era...</p>
+      </div>
+      <button id="btn-to-stage2" class="btn-primary">Proceed to Tour Route Discovery</button>
+    </section>
+
+    <!-- 3. STAGE 2: VISITING TERRITORIES DISCOVERY -->
+    <section id="screen-stage2-territories" class="game-screen hidden">
+      <h2>Stage 2: Tour Itinerary</h2>
+      <p>Click on any territory to review its geopolitical briefing for this era:</p>
+  
+      <!-- Buttons for territories go here (JavaScript builds them) -->
+      <ul id="visiting-territories-list" class="territory-list"></ul>
+
+      <!-- EMPTY CONTAINER: JavaScript fills this text when a button is clicked -->
+      <div id="territory-info-box" class="territory-detail-panel hidden"></div>
+
+      <button id="btn-to-stage3" class="btn-primary">Proceed to Artwork Selection</button>
+    </section>
+
+    <!-- 4. STAGE 3: ARTWORK SELECTION & FRAMING -->
+    <section id="screen-stage3-selection" class="game-screen hidden">
+      <h2>Stage 3: Gallery Selection & Exhibition Framing</h2>
+      
+      <!-- Selection Counter Indicator -->
+      <div class="selection-counter">
+        <span>Selected Pieces: <strong id="selected-count">0</strong> / <span id="max-count">10</span></span>
+      </div>
+
+      <!-- Artwork Roster Gallery -->
+      <div id="art-roster-grid" class="roster-grid">
+        <!-- Artwork Cards injected by JavaScript -->
+      </div>
+
+      <!-- Framing Form -->
+      <div class="framing-section">
+        <h3>Exhibition Framing</h3>
+        <div class="form-group">
+          <label for="exhibition-title">Exhibition Title:</label>
+          <input type="text" id="exhibition-title" placeholder="e.g., Contemporary Harmony of the Far East">
+        </div>
+
+        <div class="form-group">
+          <label for="exhibition-desc">Curator Statement / Description:</label>
+          <textarea id="exhibition-desc" rows="3" placeholder="Write a brief description tailored to the target audience..."></textarea>
+        </div>
+
+        <button id="btn-launch-tour" class="btn-success">Launch International Tour</button>
+      </div>
+    </section>
+
+    <!-- 5. RESULTS & INCIDENT MODAL / OVERLAY -->
+    <section id="screen-result" class="game-screen hidden">
+      <div id="result-card" class="result-card">
+        <h2 id="result-title">Tour Evaluation</h2>
+        <p id="result-message"></p>
+
+        <!-- Dynamic Failure / Success Info Container -->
+        <div id="revealed-info" class="reveal-box"></div>
+
+        <button id="btn-result-action" class="btn-primary">Continue</button>
+      </div>
+    </section>
+
+    <!-- 6. NEW MISSION / STORY TRANSITION SLIDE (Step 2 of Success Flow) -->
+    <section id="screen-next-mission" class="game-screen hidden">
+      <div class="briefing-card">
+        <h2 id="mission-title">New Mission Awaits!</h2>
+        <p id="mission-story-text" style="white-space: pre-line; margin-top: 15px;"></p>
+        <button id="btn-start-next-stage1" class="btn-primary">Begin Next Tour</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
